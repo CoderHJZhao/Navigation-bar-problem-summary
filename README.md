@@ -25,6 +25,8 @@ NS_DEPRECATED_IOS(2_0, 9_0, "Use -[UIViewController preferredStatusBarStyle]") _
 第一个设置导航栏的方法按道理应该在iOS10以及以上的系统里用，但是结合滑动返回手势后，却会产生一个莫名其妙的bug,这个bug还不知道具体是什么原因，目测应该是苹果内部调用冲突了。
 如果使用第二个方法来代替第一个方法，即使这个方法已经在iOS10中过期了。
 
+![demo](Image/1.gif)
+
 ####2. B项目中从有导航栏的界面无动画跳转到首页后对导航栏的影响。
 
 ```
@@ -56,6 +58,9 @@ NS_DEPRECATED_IOS(2_0, 9_0, "Use -[UIViewController preferredStatusBarStyle]") _
 ```
 
 ####4、滑动返回时，导航栏割裂的解决办法。
+
+![demo](Image/2.gif)
+
 使用
 
 ```
