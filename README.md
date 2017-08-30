@@ -1,5 +1,5 @@
 # Navigation-bar-problem-summary
-###iOS开发中导航栏结合滑动返回手势中的那些坑点
+### iOS开发中导航栏结合滑动返回手势中的那些坑点
 
 > 1. 设置状态栏结合滑动手势对导航栏的影响。
 > 2. 从有导航栏的界面无动画跳转到首页后对导航栏的影响。
@@ -9,7 +9,7 @@
 > 6. 当自定义导航栏后滑动返回手势失效，使用设置代理的方式重新开启返回手势后，首页滑动返回，界面假死。
 
 
-####1. 设置状态栏结合滑动手势对导航栏的影响。
+#### 1. 设置状态栏结合滑动手势对导航栏的影响。
 ```
 - (UIStatusBarStyle) preferredStatusBarStyle（NS_AVAILABLE_IOS(7_0) __TVOS_PROHIBITED）
 {
@@ -27,7 +27,7 @@ NS_DEPRECATED_IOS(2_0, 9_0, "Use -[UIViewController preferredStatusBarStyle]") _
 
 ![demo](Image/1.gif)
 
-####2. B项目中从有导航栏的界面无动画跳转到首页后对导航栏的影响。
+#### 2. B项目中从有导航栏的界面无动画跳转到首页后对导航栏的影响。
 
 ```
 [self.navigationController setNavigationBarHidden:NO animated:animated];
@@ -37,7 +37,7 @@ NS_DEPRECATED_IOS(2_0, 9_0, "Use -[UIViewController preferredStatusBarStyle]") _
 
 >一种是POP和PUSH带动画      animated == YES
 
-####3. 自定义导航栏导致滑动返回手势失效。
+#### 3. 自定义导航栏导致滑动返回手势失效。
 
 先说解决方案
 
@@ -57,7 +57,7 @@ NS_DEPRECATED_IOS(2_0, 9_0, "Use -[UIViewController preferredStatusBarStyle]") _
 }
 ```
 
-####4、滑动返回时，导航栏割裂的解决办法。
+#### 4、滑动返回时，导航栏割裂的解决办法。
 
 ![demo](Image/2.gif)
 
@@ -72,7 +72,7 @@ NS_DEPRECATED_IOS(2_0, 9_0, "Use -[UIViewController preferredStatusBarStyle]") _
 self.navigationController.navigationBar.hidden = NO;
 ```
 
-####5、iOS10和iOS10以下系统设置透明状态栏不同的方法。
+#### 5、iOS10和iOS10以下系统设置透明状态栏不同的方法。
 ```
 //设置透明导航栏代码
 self.navigationController.navigationBar.translucent = NO;
@@ -95,7 +95,7 @@ IOS
 
 >6、UIBarMetricsLandscapePhonePrompt NS_ENUM_DEPRECATED_IOS(7_0, 8_0, "Use UIBarMetricsCompactPrompt") = UIBarMetricsCompactPrompt,
 
-####6、当自定义导航栏后滑动返回手势失效，使用设置代理的方式重新开启返回手势后，首页滑动返回，界面假死。
+#### 6、当自定义导航栏后滑动返回手势失效，使用设置代理的方式重新开启返回手势后，首页滑动返回，界面假死。
 解决办法
 
 ```
