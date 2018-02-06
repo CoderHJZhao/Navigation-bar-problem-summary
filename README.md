@@ -10,13 +10,13 @@
 
 
 #### 1. 设置状态栏结合滑动手势对导航栏的影响。
-```
+```objc
 - (UIStatusBarStyle) preferredStatusBarStyle（NS_AVAILABLE_IOS(7_0) __TVOS_PROHIBITED）
 {
     return UIStatusBarStyleLightContent;
 }
 ```
-```
+```objc
 NS_DEPRECATED_IOS(2_0, 9_0, "Use -[UIViewController preferredStatusBarStyle]") __TVOS_PROHIBITED
 
  [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -29,7 +29,7 @@ NS_DEPRECATED_IOS(2_0, 9_0, "Use -[UIViewController preferredStatusBarStyle]") _
 
 #### 2. B项目中从有导航栏的界面无动画跳转到首页后对导航栏的影响。
 
-```
+```objc
 [self.navigationController setNavigationBarHidden:NO animated:animated];
 ```
 切记不要单纯的将animated写死成YES或者NO，这里应该考虑到两种应用场景：
@@ -41,7 +41,7 @@ NS_DEPRECATED_IOS(2_0, 9_0, "Use -[UIViewController preferredStatusBarStyle]") _
 
 先说解决方案
 
-```
+```objc
   
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.delegate = weakself;
@@ -63,17 +63,17 @@ NS_DEPRECATED_IOS(2_0, 9_0, "Use -[UIViewController preferredStatusBarStyle]") _
 
 使用
 
-```
+```objc
  [self.navigationController setNavigationBarHidden:NO animated:animated];
 ```
 而不是使用
 
-```
+```objc
 self.navigationController.navigationBar.hidden = NO;
 ```
 
 #### 5、iOS10和iOS10以下系统设置透明状态栏不同的方法。
-```
+```objc
 //设置透明导航栏代码
 self.navigationController.navigationBar.translucent = NO;
 [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -98,7 +98,7 @@ IOS
 #### 6、当自定义导航栏后滑动返回手势失效，使用设置代理的方式重新开启返回手势后，首页滑动返回，界面假死。
 解决办法
 
-```
+```objc
 /**
  返回手势代理，解决返回手势造成的界面假死等情况
 
